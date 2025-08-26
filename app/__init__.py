@@ -16,9 +16,21 @@ class Playlist:
     def add_song(self, song):
         self.songs.append(song)
 
+    def remove_song(self, title):
+        for song in self.songs:
+            if song.title == title:
+                self.songs.remove(song)
+                print(f"Removed: {song}")
+        print(f"Song'{title}' not found in playlist")     
+                 
     def show_songs(self):
-        for i, song in enumerate(self.songs, 1):
-            print(f"{i}.{song}")
+        if not self.songs:
+            print("Playlist is empty. ")
+        else:
+            print (f"Playlist: {self.name}")
+            for song in self.songs:
+                print (f" - (song)")    
+        
 
 if __name__=="__main__":
     song1 = Song("Shape of You", "Ed Sheeran",4)
